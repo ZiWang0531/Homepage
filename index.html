@@ -55,7 +55,8 @@
             year: "2025",
             description: <React.Fragment>Designed a system <span className="font-bold">transforming text-based topics into interactive concept networks</span> using recursive concept expansion and context-aware explanations.</React.Fragment>,
             tags: ["Interaction Design", "AI", "Learning Sciences"],
-            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Learning%20Synapps.JPG" 
+            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Learning%20Synapps.JPG",
+            link: "https://learning-synapps-project.pages.dev/"
           },
           {
             id: 3,
@@ -64,7 +65,8 @@
             year: "2024",
             description: <React.Fragment>Designed an interactive tool for learning linear equations with <span className="font-bold">adaptive scaffolding, fading strategies, and a prototype agent</span> for error detection.</React.Fragment>,
             tags: ["Scaffolding", "Adaptive Learning", "UX/UI"],
-            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Interactive%20Algebra%20Learning%20Tool.jpg"
+            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Interactive%20Algebra%20Learning%20Tool.jpg",
+            link: "https://interactive-algebra-tool.pages.dev/"
           },
           {
             id: 4,
@@ -73,7 +75,8 @@
             year: "2024",
             description: <React.Fragment>Designed <span className="font-bold">a strategy-based tabletop card game</span> simulating university students competing for mentors. Incorporated real-life ethical dilemmas and strategic mechanics.</React.Fragment>,
             tags: ["Game Design", "Tabletop", "Strategy"],
-            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/FYP%20Frenzy.JPG"
+            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/FYP%20Frenzy.JPG",
+            link: "https://fyp-frenzy.pages.dev/"
           },
           {
             id: 5,
@@ -82,7 +85,8 @@
             year: "2024",
             description: <React.Fragment><span className="font-bold">Visual search and rescue robot</span> with <span className="font-bold">remote control via Bluetooth</span>, equipped with <span className="font-bold">camera and buzzer</span> for target location.</React.Fragment>,
             tags: ["Python", "Robotics", "Hardware"],
-            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Vision%20CourierPal.jpg"
+            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Vision%20CourierPal.jpg",
+            link: "https://vision-courierpal-robot.pages.dev/"
           },
           {
             id: 6,
@@ -91,7 +95,8 @@
             year: "2024",
             description: <React.Fragment>Translated a British fragrance brand's website and <span className="font-bold">designed a Chinese brand book</span>, ensuring <span className="font-bold">cultural adaptation</span> and <span className="font-bold">aesthetic alignment</span> for target audiences.</React.Fragment>,
             tags: ["Localization", "Brand Design", "Translation"],
-            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Aery.png"
+            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/Aery.png",
+            link: "https://aery-c1k.pages.dev/"
           },
           {
             id: 7,
@@ -100,7 +105,8 @@
             year: "2023",
             description: <React.Fragment><span className="font-bold">Redesigned and translated a local brand's website to align with international aesthetics</span>, promoting Chinese dragon and lion culture to foreign markets.</React.Fragment>,
             tags: ["Web Design", "Localization", "Culture"],
-            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/HEA.png"
+            image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/HEA.png",
+            link: "https://hea-bn3.pages.dev/"
           }
         ];
 
@@ -229,7 +235,6 @@
                   </p>
                 </motion.div>
 
-                {/* Abstract Background Only */}
                 <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], [0, -150]) }} className="absolute right-[-5%] top-[10%] w-[50vw] h-[50vw] bg-gray-100 rounded-full z-0 opacity-60 blur-3xl pointer-events-none" />
                 
                 <div className="absolute bottom-12 left-6 md:left-24 flex gap-16 text-xs font-medium tracking-widest text-gray-400 z-10">
@@ -268,14 +273,24 @@
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
                   {projects.map((project, index) => (
                     <motion.div key={project.id} initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group flex flex-col h-full">
-                      <div className="relative aspect-[16/10] bg-gray-200 mb-10 overflow-hidden" onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
+                      
+                      {/* --- WRAPPED IMAGE IN ANCHOR TAG --- */}
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="relative aspect-[16/10] bg-gray-200 mb-10 overflow-hidden block"
+                        onMouseEnter={projectEnter} 
+                        onMouseLeave={projectLeave}
+                      >
                          {project.image ? (
                             <motion.img whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} src={project.image} alt={project.title} className="w-full h-full object-cover" />
                          ) : (
                             <div className="w-full h-full bg-white flex items-center justify-center text-gray-300"><BookOpen size={48} strokeWidth={1} /></div>
                          )}
                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
-                      </div>
+                      </a>
+                      
                       <div className="flex flex-col grow" onMouseEnter={textEnter} onMouseLeave={textLeave}>
                         <div className="flex justify-between items-start mb-4">
                             <h3 className="text-3xl font-black tracking-tight font-lato">{project.title}</h3>
