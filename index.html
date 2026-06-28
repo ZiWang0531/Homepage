@@ -20,6 +20,8 @@
         @media (max-width: 768px) {
             .cursor-none { cursor: auto; }
         }
+        /* Make sure scrolling is smooth */
+        html { scroll-behavior: smooth; }
     </style>
 
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -49,6 +51,16 @@
 
         // --- Data ---
         const projects = [
+          {
+            id: 8,
+            title: "Tea Journey",
+            category: "Exploration of Computational Problem Spaces",
+            year: "2026",
+            description: <React.Fragment>Designed an <span className="font-bold">interactive learning website</span> that transforms Chinese tea culture into a structured experience through simulations and gamification. Applied <span className="font-bold">instructional design principles</span> to support procedural knowledge acquisition.</React.Fragment>,
+            tags: ["Instructional Design", "Gamification", "Learning Sciences"],
+            image: "https://github.com/ZiWang0531/portfolio/blob/main/TeaJourney.png?raw=true", /* 提示: 请将此处替换为你上传后的真实图片链接 */
+            link: "#" /* 提示: 如果有该项目的网页链接，请替换此处的 # */
+          },
           {
             id: 1,
             title: "AI-Supported Learning System",
@@ -113,6 +125,17 @@
 
         const experiences = [
           {
+            id: 4,
+            role: "Instructional Design Assistant (Hybrid)",
+            company: "Center for Teaching and Learning (CTL), Columbia+",
+            period: "Jun 2026 - Present",
+            description: [
+              <React.Fragment>Developed and maintained <span className="font-bold">Canvas</span> courses for online and executive education.</React.Fragment>,
+              <React.Fragment>Designed instructional content and conducted quality assurance to improve <span className="font-bold">accessibility</span> and <span className="font-bold">learner experience</span>.</React.Fragment>,
+              <React.Fragment>Supported course enhancement through <span className="font-bold">usability testing</span>, <span className="font-bold">feedback analysis</span>, and <span className="font-bold">AI-assisted instructional design</span>.</React.Fragment>
+            ]
+          },
+          {
             id: 1,
             role: "Teaching Research Intern",
             company: "CodeMao",
@@ -170,7 +193,7 @@
 
           return (
             <motion.div
-              className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] flex items-center justify-center hidden md:flex"
+              className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] hidden md:flex items-center justify-center overflow-hidden"
               style={{ translateX: "-50%", translateY: "-50%", x: cursorX, y: cursorY }}
               variants={variants}
               animate={cursorVariant}
@@ -181,7 +204,7 @@
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.5 }}
-                    className="text-white text-[10px] font-bold tracking-widest uppercase"
+                    className="text-white text-[10px] font-bold tracking-widest uppercase flex items-center justify-center w-full h-full"
                   >
                     {cursorText}
                   </motion.span>
@@ -276,7 +299,6 @@
                   {projects.map((project, index) => (
                     <motion.div key={project.id} initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group flex flex-col h-full">
                       
-                      {/* --- target="_blank" 已被移除 --- */}
                       <a 
                         href={project.link} 
                         className="relative aspect-[16/10] bg-gray-200 mb-10 overflow-hidden block"
