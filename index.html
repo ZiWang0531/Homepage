@@ -102,6 +102,16 @@
             link: "https://vision-courierpal-robot.pages.dev/"
           },
           {
+            id: 9,
+            title: "Game Localization of Cultural Elements in Black Myth: Wukong",
+            category: "Final Year Project / Game Localization",
+            year: "Oct 2024 - Present",
+            description: <React.Fragment>Researched <span className="font-bold">cultural adaptation in game localization</span> using André Lefevere's Rewriting Theory. Compared Chinese and English names, cultural symbols, mythological references, narrative texts, skill descriptions, and character introductions. Collaborated with localization experts to explore ideological and cultural adjustments for Western audiences, proposing strategies that balance <span className="font-bold">cultural retention and Western market preferences</span>.</React.Fragment>,
+            tags: ["Game Localization", "Cultural Adaptation", "Translation Studies"],
+            image: null,
+            link: null
+          },
+          {
             id: 6,
             title: "Brand Book Design & Localization",
             category: "Commercial Translation",
@@ -120,6 +130,16 @@
             tags: ["Web Design", "Localization", "Culture"],
             image: "https://raw.githubusercontent.com/ZiWang0531/portfolio/refs/heads/main/HEA.png",
             link: "https://hea-bn3.pages.dev/"
+          },
+          {
+            id: 10,
+            title: "Media Translation: Timberland Advertisement",
+            category: "Media Translation / Accessibility",
+            year: "Sep - Oct 2023",
+            description: <React.Fragment>Supported <span className="font-bold">inclusive access to life and entertainment</span> through accessible versions of a Timberland advertisement. Reviewed subtitle quality, refined translations and audio-description scripts, and provided audio-description voiceover. Delivered standard English and Chinese subtitles, <span className="font-bold">SDH (Subtitling for Deaf and Hard of Hearing)</span>, and <span className="font-bold">AD (Audio Description)</span> formats.</React.Fragment>,
+            tags: ["Media Translation", "Accessibility", "Audio Description"],
+            image: null,
+            link: null
           }
         ];
 
@@ -313,7 +333,7 @@
                       <a 
                         href={project.link} 
                         className="relative aspect-[16/10] bg-gray-200 mb-10 overflow-hidden block"
-                        onMouseEnter={projectEnter} 
+                        onMouseEnter={project.link ? projectEnter : undefined} 
                         onMouseLeave={projectLeave}
                       >
                           {project.image ? (
@@ -331,9 +351,9 @@
                       </a>
                       
                       <div className="flex flex-col grow" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex justify-between items-start gap-4 mb-4">
                             <h3 className="text-3xl font-black tracking-tight font-lato">{project.title}</h3>
-                            <span className="text-xs font-mono text-gray-400 border border-gray-200 px-2 py-1 rounded-sm">{project.year}</span>
+                            <span className="shrink-0 text-xs font-mono text-gray-400 border border-gray-200 px-2 py-1 rounded-sm">{project.year}</span>
                         </div>
                         <p className="text-gray-600 leading-relaxed mb-6 font-lora max-w-md">{project.description}</p>
                         <div className="mt-auto flex flex-wrap gap-2">
